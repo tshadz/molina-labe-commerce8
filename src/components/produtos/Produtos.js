@@ -38,7 +38,7 @@ export default class Produtos extends React.Component {
             .filter((produto) => this.props.filtroNome ? produto.nome.includes(this.props.filtroNome) : true)
             .filter((produto) => this.props.filtroMinimo ? produto.preco> this.props.filtroMinimo : true)
             .filter((produto) => this.props.filtroMaximo ? produto.preco< this.props.filtroMaximo : true)
-            .sort((a, b) => this.state.sort === 'CRESCENTE' ? a.preco- b.preco: b.preco- a.price)
+            .sort((a, b) => this.state.sort === 'CRESCENTE' ? a.preco- b.preco: b.preco- a.preco)
       }
     
 
