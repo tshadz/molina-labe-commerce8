@@ -58,12 +58,26 @@ class App extends React.Component {
     filtroNome: '',
     listaProdutosCarrinho: [
       {
-        id:1,
-        nome:'Floki',
-        preco:500,
-        imageUrl:"https://picsum.photos/200/200",
-        quantidade:1,
-      }
+        id: 1,
+        nome: "Foguete da Missão Apollo 11",
+        preco: 10000,
+        imageUrl: "https://picsum.photos/200/200",
+        quantidade: 1,
+      },
+      {
+        id: 2,
+        nome: "Foguete do Elon Musk",
+        preco: 20000,
+        imageUrl: "https://picsum.photos/201/200",
+        quantidade: 1,
+      },
+      {
+        id: 3,
+        nome: "Foguete da Missão Fugindo da terra",
+        preco: 30000,
+        imageUrl: "https://picsum.photos/202/200",
+        quantidade: 5,
+      },
     ]
   } 
 
