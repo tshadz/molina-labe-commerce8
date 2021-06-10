@@ -123,7 +123,9 @@ class App extends React.Component {
     } else {
       const addProdutoNoCarrinho = listaProdutos.find(produto => produtoId === produto.id)
 
-      const newProdutosNoCarrinho = [...this.state.listaProdutosCarrinho, {addProdutoNoCarrinho, quantidade:1}]
+      const newListaProdutosCarrinho = [...this.state.listaProdutosCarrinho, {...addProdutoNoCarrinho, quantidade:1}]
+      
+      this.setState({listaProdutosCarrinho: newListaProdutosCarrinho})
     }
   }
 
