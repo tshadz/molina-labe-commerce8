@@ -20,7 +20,9 @@ export default class ItensCarrinho extends React.Component {
                 <img src = {this.props.produtosCarrinho.imageUrl}/>
                 <p>{this.props.produtosCarrinho.nome}</p>
                 <p>x{this.props.produtosCarrinho.quantidade}</p>
-                <button>Remover Item</button>
+                <button onClick={()=> this.props.removerProdutoCarrinho(this.props.produtosCarrinho.id)}
+                >Remover Item
+                </button>
             </ItemContainer>
         )
     }

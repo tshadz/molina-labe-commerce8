@@ -34,6 +34,7 @@ export default class Carrinho extends React.Component {
                     {this.props.listaProdutosCarrinho.map((produto) => {
                         return <ItensCarrinho 
                                 produtosCarrinho = {produto}
+                                removerProdutoCarrinho = {this.props.removerProdutoCarrinho}
                                 />
                     })}
                 

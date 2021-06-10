@@ -93,6 +93,18 @@ class App extends React.Component {
     this.setState({filtroNome: event.target.value})
   }
 
+  removerProdutoCarrinho = (produtoId) => {
+    const newListaProdutosCarrinho = this.state.listaProdutosCarrinho.map((produto)=> {
+      if(produto.id === produtoId){
+        return {
+          ...produto,
+          quantidade: produto.quantidade -1
+        }
+      }
+      return produto
+    }).filter((produto)=> produto.quantidade > 0)
+    this.setState({listaProdutosCarrinho: newListaProdutosCarrinho})
+  }
 
   render () {
 
@@ -117,6 +129,7 @@ class App extends React.Component {
             />
           <Carrinho
             listaProdutosCarrinho = {this.state.listaProdutosCarrinho}
+            removerProdutoCarrinho = {this.removerProdutoCarrinho}
           />
         </Main>
         <Footer />
