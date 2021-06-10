@@ -5,6 +5,7 @@ import Produtos from './components/produtos/Produtos';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Filtros from './components/Filtros';
+import Carrinho from './components/carrinhoDeCompras/Carrinho'
 
 
 const Main = styled.div`
@@ -20,11 +21,7 @@ const Main = styled.div`
       align-items: center;
     }
 `
-const Carrinho = styled.div`
-  background-color: lightgreen;
-  height: 400px;
-  width: 300px;
-`
+
 
 const Filtro = styled.div`
   background-color: lightcoral;
@@ -92,10 +89,9 @@ class App extends React.Component {
             filtroMinimo={this.state.filtroMinimo}
             filtroMaximo={this.state.filtroMaximo}
             filtroNome={this.state.filtroNome}
-            AddProdutoCarrinho={this.AddProdutoCarrinho}/>
-          <Carrinho>
-            <h2>Carrinho</h2>
-          </Carrinho>
+            AddProdutoCarrinho={this.AddProdutoCarrinho}
+            />
+          <Carrinho/>
         </Main>
         <Footer />
       </div>

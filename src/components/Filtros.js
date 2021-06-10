@@ -4,13 +4,15 @@ import styled from 'styled-components';
 const ContainerFiltros = styled.div`
   border: 1px solid black;
   padding: 8px;
-`;
+  height: 420px;
+`
 
 const InputContainer = styled.label`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 8px;
+
 `
 
 export default class Filtros extends React.Component {
