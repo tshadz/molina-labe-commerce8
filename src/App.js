@@ -80,7 +80,7 @@ class App extends React.Component {
         <Header />
         <Main>
           <Filtros
-            filtroMinino={this.state.filtroMinino}
+            filtroMinimo={this.state.filtroMinimo}
             filtroMaximo={this.state.filtroMaximo}
             filtroNome={this.state.filtroNome}
             onChangeFiltroMinimo={this.onChangeFiltroMinimo}            
