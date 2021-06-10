@@ -106,6 +106,27 @@ class App extends React.Component {
     this.setState({listaProdutosCarrinho: newListaProdutosCarrinho})
   }
 
+  AddProdutoCarrinho = (produtoId) => {
+    const produtoEstaNoCarrinho = this.state.listaProdutosCarrinho.find(produto => produtoId === produto.id)
+
+    if (produtoEstaNoCarrinho){
+      const newListaProdutosCarrinho = this.state.listaProdutosCarrinho.map((produto)=> {
+        if(produto.id === produtoId){
+          return {
+            ...produto,
+            quantidade: produto.quantidade +1
+          }
+        }
+        return produto
+      })
+      this.setState({listaProdutosCarrinho: newListaProdutosCarrinho})
+    } else {
+      const addProdutoNoCarrinho = listaProdutos.find(produto => produtoId === produto.id)
+
+      const newProdutosNoCarrinho = [...this.state.listaProdutosCarrinho, {addProdutoNoCarrinho, quantidade:1}]
+    }
+  }
+
   render () {
 
     return (
