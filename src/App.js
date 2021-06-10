@@ -56,6 +56,15 @@ class App extends React.Component {
     filtroMinimo:100,
     filtroMaximo:10000000,
     filtroNome: '',
+    listaProdutosCarrinho: [
+      {
+        id:1,
+        nome:'Floki',
+        preco:500,
+        imageUrl:"https://picsum.photos/200/200",
+        quantidade:1,
+      }
+    ]
   } 
 
   onChangeFiltroMinimo = (event) => {
@@ -69,6 +78,7 @@ class App extends React.Component {
   onChangeFiltroNome = (event) => {
     this.setState({filtroNome: event.target.value})
   }
+
 
   render () {
 
@@ -91,7 +101,9 @@ class App extends React.Component {
             filtroNome={this.state.filtroNome}
             AddProdutoCarrinho={this.AddProdutoCarrinho}
             />
-          <Carrinho/>
+          <Carrinho
+            listaProdutosCarrinho = {this.state.listaProdutosCarrinho}
+          />
         </Main>
         <Footer />
       </div>
