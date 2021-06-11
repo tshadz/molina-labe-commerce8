@@ -69,6 +69,27 @@ const listaProdutos = [
     imageUrl: "https://picsum.photos/202/200",
     categoria:'Meteoritos',
   },
+  {
+    id: 4,
+    nome: "Camiseta Elon Musk",
+    preco: 150,
+    imageUrl: "https://picsum.photos/200/200",
+    categoria:'Camisetas',
+  },
+  {
+    id: 5,
+    nome: "Foguete do Elon Musk",
+    preco: 20000,
+    imageUrl: "https://picsum.photos/201/200",
+    categoria:'Foguetes',
+  },
+  {
+    id: 6,
+    nome: "Meteorito Marte",
+    preco: 30000,
+    imageUrl: "https://picsum.photos/202/200",
+    categoria:'Meteoritos',
+  },
 ]
 
 
