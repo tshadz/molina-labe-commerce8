@@ -9,7 +9,6 @@ import Carrinho from './components/carrinhoDeCompras/Carrinho'
 
 
 const Main = styled.div`
-  background-color: lightpink;
   flex-grow: 1;
   display: flex;
   justify-content: space-between;
@@ -20,14 +19,6 @@ const Main = styled.div`
       justify-content: center;
       align-items: center;
     }
-`
-
-
-const Filtro = styled.div`
-  background-color: lightcoral;
-  height: 400px;
-  width: 300px;
-
 `
 
 const listaProdutos = [

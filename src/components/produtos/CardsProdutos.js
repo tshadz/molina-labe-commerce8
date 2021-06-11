@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
 
-
 const CardContainer = styled.div`
 border: 1px solid black;
 display: flex;
@@ -31,9 +30,12 @@ export default class CardsProdutos extends React.Component {
         <CardInfo>
           <p>{produto.nome}</p>
           <p>R${produto.preco},00</p>
-          <AddCarrinhoButton onClick={() => this.props.AddProdutoCarrinho(produto.id)}>
+          <button
+            texto="Adicionar ao carrinho"
+            onClick={() => this.props.AddProdutoCarrinho(produto.id)}
+          >
             Adicionar ao carrinho
-          </AddCarrinhoButton>
+          </button>
         </CardInfo>
       </CardContainer>
     }
