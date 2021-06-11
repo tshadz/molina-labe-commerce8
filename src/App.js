@@ -6,7 +6,10 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Filtros from './components/Filtros';
 import Carrinho from './components/carrinhoDeCompras/Carrinho'
-
+import { FaTshirt } from 'react-icons/fa';
+import { ImRocket } from 'react-icons/im';
+import { GiStoneSphere } from 'react-icons/gi';
+import { FcClearFilters } from 'react-icons/fc';
 
 const Main = styled.div`
   flex-grow: 1;
@@ -21,55 +24,61 @@ const Main = styled.div`
     }
 `
 
+const FiltroCategoria =styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items:center;
+  height: 300px;
+
+  .icon {
+    font-size: 60px;
+    margin: 5px;
+    cursor:pointer;
+  }
+
+  #LimparCategoria {
+    width: 30px;
+  }
+
+`
+const FiltroContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 const listaProdutos = [
   {
     id: 1,
-    nome: "Foguete da Missão Apollo 11",
-    preco: 10000,
+    nome: "Camiseta Elon Musk",
+    preco: 150,
     imageUrl: "https://picsum.photos/200/200",
+    categoria:'Camisetas',
   },
   {
     id: 2,
     nome: "Foguete do Elon Musk",
     preco: 20000,
     imageUrl: "https://picsum.photos/201/200",
+    categoria:'Foguetes',
   },
   {
     id: 3,
-    nome: "Foguete da Missão Fugindo da terra",
+    nome: "Meteorito Marte",
     preco: 30000,
     imageUrl: "https://picsum.photos/202/200",
+    categoria:'Meteoritos',
   },
 ]
+
 
 class App extends React.Component {
   state = {
     filtroMinimo:100,
     filtroMaximo:10000000,
     filtroNome: '',
-    listaProdutosCarrinho: [
-      {
-        id: 1,
-        nome: "Foguete da Missão Apollo 11",
-        preco: 10000,
-        imageUrl: "https://picsum.photos/200/200",
-        quantidade: 1,
-      },
-      {
-        id: 2,
-        nome: "Foguete do Elon Musk",
-        preco: 20000,
-        imageUrl: "https://picsum.photos/201/200",
-        quantidade: 1,
-      },
-      {
-        id: 3,
-        nome: "Foguete da Missão Fugindo da terra",
-        preco: 30000,
-        imageUrl: "https://picsum.photos/202/200",
-        quantidade: 5,
-      },
-    ]
+    filtroCategoria:'',
+    listaProdutosCarrinho: []
   } 
 
   onChangeFiltroMinimo = (event) => {
@@ -82,6 +91,30 @@ class App extends React.Component {
 
   onChangeFiltroNome = (event) => {
     this.setState({filtroNome: event.target.value})
+  }
+
+  onChangeFiltroCategoria = (event) => {
+    this.setState({filtroCategoria: event.target.value})
+  }
+
+  onClickCamiseta = () => {
+    this.setState({filtroCategoria: 'Camisetas'})
+  }
+
+  onClickFoguete = () => {
+    this.setState({filtroCategoria: 'Foguetes'})
+  }
+
+  onClickMeteorito = () => {
+    this.setState({filtroCategoria: 'Meteoritos'})
+  }
+
+  onClickLimparFiltros = () => {
+    this.setState({filtroNome: ''})
+    this.setState({filtroMaximo: ''})
+    this.setState({filtroMinimo: ''})
+    this.setState({filtroNome: ''})
+    this.setState({filtroCategoria: ''})
   }
 
   removerProdutoCarrinho = (produtoId) => {
@@ -126,19 +159,45 @@ class App extends React.Component {
       <div className = "PaginaInicial">
         <Header />
         <Main>
-          <Filtros
-            filtroMinimo={this.state.filtroMinimo}
-            filtroMaximo={this.state.filtroMaximo}
-            filtroNome={this.state.filtroNome}
-            onChangeFiltroMinimo={this.onChangeFiltroMinimo}            
-            onChangeFiltroMaximo={this.onChangeFiltroMaximo}            
-            onChangeFiltroNome={this.onChangeFiltroNome}                  
-          />
+          <FiltroContainer>
+            <Filtros
+              filtroMinimo={this.state.filtroMinimo}
+              filtroMaximo={this.state.filtroMaximo}
+              filtroNome={this.state.filtroNome}
+              filtroCategoria={this.state.filtroCategoria}
+              onChangeFiltroMinimo={this.onChangeFiltroMinimo}            
+              onChangeFiltroMaximo={this.onChangeFiltroMaximo}            
+              onChangeFiltroNome={this.onChangeFiltroNome}
+              onChangeFiltroCategoria={this.onChangeFiltroCategoria}                  
+            />
+            <FiltroCategoria>
+              <FaTshirt className="icon"
+                value="Camisetas"
+                onClick={this.onClickCamiseta}
+              /> 
+              <p>Camisetas</p>
+              <ImRocket className="icon"
+                value="Foguete"
+                onClick={this.onClickFoguete}      
+              />
+              <p>Foguetes</p>
+              <GiStoneSphere className="icon"
+                value="Meteorito"
+                onClick={this.onClickMeteorito}
+              />
+              <p>Meteoritos</p>
+              <FcClearFilters className="icon" id="LimparFiltros"
+                onClick={this.onClickLimparFiltros}
+              />
+              <p>Limpar Filtros</p>
+            </FiltroCategoria>
+          </FiltroContainer>
           <Produtos 
             produtos={listaProdutos}
             filtroMinimo={this.state.filtroMinimo}
             filtroMaximo={this.state.filtroMaximo}
             filtroNome={this.state.filtroNome}
+            filtroCategoria={this.state.filtroCategoria}
             AddProdutoCarrinho={this.AddProdutoCarrinho}
             />
           <Carrinho
@@ -146,7 +205,8 @@ class App extends React.Component {
             removerProdutoCarrinho = {this.removerProdutoCarrinho}
           />
         </Main>
-        <Footer />
+        <Footer 
+        />
       </div>
     );  
   }
