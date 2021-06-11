@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
 
+
 const ContainerFiltros = styled.div`
   padding: 8px;
-  height: 420px;
+  height: 180px;
 `
 
 const InputContainer = styled.label`
@@ -11,8 +12,8 @@ const InputContainer = styled.label`
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 8px;
-
 `
+
 
 export default class Filtros extends React.Component {
   render() {

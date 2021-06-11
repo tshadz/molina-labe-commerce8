@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import { FaShoppingCart } from 'react-icons/fa'
 
 const CardContainer = styled.div`
 border: 1px solid black;
@@ -18,8 +19,17 @@ p {
 `
 
 const AddCarrinhoButton = styled.button`
-align-self: center;
-margin-top: 4px;
+    background-color: orange;
+    cursor: pointer;
+    color: rgba(0,0,0,.9);
+    font-family: Raleway,sans-serif;
+    text-transform: none;
+    text-shadow: none;
+    font-weight: 700;
+    line-height: 1em;
+    font-style: normal;
+    text-align: center;
+    height: 50px;
 `
 
 export default class CardsProdutos extends React.Component {
@@ -30,12 +40,13 @@ export default class CardsProdutos extends React.Component {
         <CardInfo>
           <p>{produto.nome}</p>
           <p>R${produto.preco},00</p>
-          <button
+          <AddCarrinhoButton
             texto="Adicionar ao carrinho"
             onClick={() => this.props.AddProdutoCarrinho(produto.id)}
           >
+            <FaShoppingCart />
             Adicionar ao carrinho
-          </button>
+          </AddCarrinhoButton>
         </CardInfo>
       </CardContainer>
     }
