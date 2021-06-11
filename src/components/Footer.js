@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import { FaFacebook } from 'react-icons/fa';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaTwitter } from 'react-icons/fa';
 import { FaInstagram } from 'react-icons/fa';
 
 
@@ -46,7 +46,7 @@ export default class Footer extends React.Component {
                 <h3>Nos siga nas redes sociais</h3>
                 <RedesSociaisIcones>
                     <a className="social-icone" target="_blank" href="https://www.facebook.com/"><FaFacebook/></a>
-                    <a className="social-icone" target="_blank" href="https://www.whatsapp.com/?lang=pt_br"><FaWhatsapp/></a>
+                    <a className="social-icone" target="_blank" href="https://twitter.com/twitter"><FaTwitter/></a>
                     <a className="social-icone" target="_blank" href="https://www.instagram.com/"><FaInstagram/></a>
                 </RedesSociaisIcones>
             </RedesSociais>
