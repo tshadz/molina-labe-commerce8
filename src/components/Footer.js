@@ -7,8 +7,9 @@ import { FaInstagram } from 'react-icons/fa';
 
 const FooterContainer = styled.div`
     display: flex;
+    flex-direction:column;
     height: 80px;
-    align-items: center;
+    align-items: right;
     justify-content:right;
     background-color: rgba(150,30,217);
     color: white;
@@ -18,7 +19,7 @@ const FooterContainer = styled.div`
 const RedesSociais = styled.div`
     display:flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: right;
     text-align: center;
     align-items: center;
     margin-right: 50px;
@@ -38,6 +39,13 @@ const RedesSociaisIcones = styled.div`
     }
 `
 
+const DadosPrincipais = styled.div`
+    background-color:black;
+    height:50%;
+    width: 100%;
+    text-align:center;
+    font-weight:10;
+`
 
 export default class Footer extends React.Component {
     render(){
@@ -50,7 +58,9 @@ export default class Footer extends React.Component {
                     <a className="social-icone" target="_blank" href="https://www.instagram.com/"><FaInstagram/></a>
                 </RedesSociaisIcones>
             </RedesSociais>
-
+            <DadosPrincipais>
+                <h3>2021 - Astrodev - Todos os direitos reservados</h3>
+            </DadosPrincipais>
           </FooterContainer>
     }
 } 

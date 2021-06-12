@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const ContainerFiltros = styled.div`
   padding: 8px;
   height: 180px;
+  margin-left:30px;
     @media (max-width:768px){
       margin: 10px;
     }

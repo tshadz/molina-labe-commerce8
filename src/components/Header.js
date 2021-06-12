@@ -9,7 +9,8 @@ const HeaderContainer = styled.div`
     width: 100%;
     padding: 0 20px;
     align-items: center;
-
+    background-color: black;
+    color:white;
 
 
 h2 {
@@ -23,12 +24,12 @@ ul{
 li{
     padding: 18px 10px;
     text-decoration: none;
-    color: black;
-
+    
 }
 a{
     text-decoration: none;
-    color: #000;
+    color: white;
+    font-weight:500;
     
 }
 

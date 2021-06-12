@@ -21,6 +21,7 @@ const Main = styled.div`
   flex-grow: 1;
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 
     @media (max-width: 800px){
       flex-direction: column;
@@ -103,8 +104,8 @@ const listaProdutos = [
 
 class App extends React.Component {
   state = {
-    filtroMinimo:100,
-    filtroMaximo:10000000,
+    filtroMinimo:'',
+    filtroMaximo:'',
     filtroNome: '',
     filtroCategoria:'',
     listaProdutosCarrinho: []
