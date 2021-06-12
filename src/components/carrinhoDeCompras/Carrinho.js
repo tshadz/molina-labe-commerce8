@@ -13,8 +13,10 @@ const CarrinhoContainer = styled.div`
   margin: 15px;
     @media (max-width:768px){
         width:300px;
-        margin: 0;
+        margin-bottom: 10px;
         padding:0;
+        flex-grow:1;
+        height: 100%;
     }
 `
 
