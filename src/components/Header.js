@@ -11,6 +11,7 @@ const HeaderContainer = styled.div`
     align-items: center;
 
 
+
 h2 {
     padding: 15px 0;
 }
@@ -31,6 +32,10 @@ a{
     
 }
 
+    @media (max-width:800px){
+        flex-direction: column;
+        height:150px;
+    }
 
 `
 
@@ -40,11 +45,9 @@ export default class Header extends React.Component {
             <h2>Bazar do AstroDev</h2>
 
             <ul>
-                <li><a href="#">HOME</a></li>
                 <li><a href="#">PRODUTOS</a></li>
-                <li><a href="#">CARRINHO</a></li>
                 <li><a href="#">SOBRE NÓS</a></li>
-                <li><a href="#">CONTATOS</a></li>
+                <li><a href="#">CONTATO</a></li>
             </ul>
           </HeaderContainer>
     }
