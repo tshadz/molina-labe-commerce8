@@ -19,7 +19,7 @@ p {
 `
 
 const AddCarrinhoButton = styled.button`
-    background-color: orange;
+    background-color: rgba(150,30,217,0.5);
     cursor: pointer;
     color: rgba(0,0,0,.9);
     font-family: Raleway,sans-serif;
@@ -30,6 +30,16 @@ const AddCarrinhoButton = styled.button`
     font-style: normal;
     text-align: center;
     height: 50px;
+    padding:15px;
+`
+
+const NomeProduto = styled.div`
+  font-weight:700;
+  margin-bottom:10px;
+`
+
+const PrecoProduto = styled.div`
+  margin-bottom:15px;
 `
 
 export default class CardsProdutos extends React.Component {
@@ -38,8 +48,8 @@ export default class CardsProdutos extends React.Component {
       return <CardContainer>
         <img src={produto.imageUrl}/>
         <CardInfo>
-          <p>{produto.nome}</p>
-          <p>R${produto.preco},00</p>
+          <NomeProduto>{produto.nome}</NomeProduto>
+          <PrecoProduto>R${produto.preco},00</PrecoProduto>
           <AddCarrinhoButton
             texto="Adicionar ao carrinho"
             onClick={() => this.props.AddProdutoCarrinho(produto.id)}

@@ -9,6 +9,8 @@ const HeaderContainer = styled.div`
     width: 100%;
     padding: 0 20px;
     align-items: center;
+    background-color: black;
+    color:white;
 
 
 h2 {
@@ -22,15 +24,19 @@ ul{
 li{
     padding: 18px 10px;
     text-decoration: none;
-    color: black;
-
+    
 }
 a{
     text-decoration: none;
-    color: #000;
+    color: white;
+    font-weight:500;
     
 }
 
+    @media (max-width:800px){
+        flex-direction: column;
+        height:150px;
+    }
 
 `
 
@@ -40,11 +46,9 @@ export default class Header extends React.Component {
             <h2>Bazar do AstroDev</h2>
 
             <ul>
-                <li><a href="#">HOME</a></li>
                 <li><a href="#">PRODUTOS</a></li>
-                <li><a href="#">CARRINHO</a></li>
                 <li><a href="#">SOBRE NÓS</a></li>
-                <li><a href="#">CONTATOS</a></li>
+                <li><a href="#">CONTATO</a></li>
             </ul>
           </HeaderContainer>
     }

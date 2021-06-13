@@ -11,14 +11,20 @@ import { ImRocket } from 'react-icons/im';
 import { GiStoneSphere } from 'react-icons/gi';
 import { FcClearFilters } from 'react-icons/fc';
 
+const Body = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`
+
 const Main = styled.div`
   flex-grow: 1;
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 
     @media (max-width: 800px){
       flex-direction: column;
-      position: relative;
       justify-content: center;
       align-items: center;
     }
@@ -45,6 +51,9 @@ const FiltroCategoria =styled.div`
 const FiltroContainer = styled.div`
   display: flex;
   flex-direction: column;
+    @media (max-width:768px){
+      margin: 20px;
+    }
 `
 
 const listaProdutos = [
@@ -95,8 +104,8 @@ const listaProdutos = [
 
 class App extends React.Component {
   state = {
-    filtroMinimo:100,
-    filtroMaximo:10000000,
+    filtroMinimo:'',
+    filtroMaximo:'',
     filtroNome: '',
     filtroCategoria:'',
     listaProdutosCarrinho: []
@@ -177,7 +186,7 @@ class App extends React.Component {
   render () {
 
     return (
-      <div className = "PaginaInicial">
+      <Body className = "PaginaInicial">
         <Header />
         <Main>
           <FiltroContainer>
@@ -228,7 +237,7 @@ class App extends React.Component {
         </Main>
         <Footer 
         />
-      </div>
+      </Body>
     );  
   }
 }

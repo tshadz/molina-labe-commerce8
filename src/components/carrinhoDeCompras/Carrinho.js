@@ -9,6 +9,15 @@ const CarrinhoContainer = styled.div`
   justify-content: space-around;
   align-items:center;
   text-align: center;
+  padding:20px;
+  margin: 15px;
+    @media (max-width:768px){
+        width:300px;
+        margin-bottom: 10px;
+        padding:0;
+        flex-grow:1;
+        height: 100%;
+    }
 `
 
 const FinalizarContinuarCompra = styled.div`
