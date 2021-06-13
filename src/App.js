@@ -11,6 +11,7 @@ import { FaTshirt } from 'react-icons/fa';
 import { ImRocket } from 'react-icons/im';
 import { GiStoneSphere } from 'react-icons/gi';
 import { FcClearFilters } from 'react-icons/fc';
+import { FiLogIn } from 'react-icons/fi'
 
 const Body = styled.div`
   height: 100vh;
@@ -62,6 +63,7 @@ const FraseLogado = styled.div`
   width: 100%;
   padding-right:20px;
   padding-top: 5px;
+  cursor: pointer;
 `
 
 const listaProdutos = [
@@ -121,9 +123,9 @@ class App extends React.Component {
     bemvindo:'Realize o login para finalizar suas compras',
   } 
 
-  logar = (props) => {
+  logar = () => {
       this.setState({
-          logar: false,
+          logar: !this.state.logar ,
           bemvindo: 'Bem vind@ Astronauta', 
       })
   }
@@ -206,7 +208,9 @@ class App extends React.Component {
     let renderizaPagina
 
     if (this.state.logar === false){
-      renderizaPagina = <Main>
+      renderizaPagina = <>
+      <FraseLogado onClick={this.logar}>{this.state.bemvindo} <FiLogIn /></FraseLogado>
+      <Main>
         <FiltroContainer>
         <Filtros
           filtroMinimo={this.state.filtroMinimo}
@@ -253,14 +257,13 @@ class App extends React.Component {
       removerProdutoCarrinho = {this.removerProdutoCarrinho}
       />
       </Main>
+      </>
     } else {
       renderizaPagina = <Login logar={this.logar}/>
     }
-    console.log(this.state)
     return (
       <Body className = "PaginaInicial">
-        <Header />
-        <FraseLogado>{this.state.bemvindo}</FraseLogado>
+        <Header login={this.logar}/>
           {renderizaPagina}
         <Footer 
         />
