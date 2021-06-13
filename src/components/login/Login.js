@@ -79,49 +79,49 @@ export default class Login extends React.Component {
         this.setState({senha: event.target.value})
     }
 
+    mensagemLogin = () => {
+        if (this.state.login===''){
+            return "Usuário não logado"
+        }else {
+            return `Bem vind@ ${this.state.login}`
+        }
+    }
+    
     autenticar = () => {
         if(this.state.login === this.state.loginCadastrado && this.state.senha === this.state.senhaCadastrada){
-            console.log("login realizado com sucesso")
-        } else {
-            console.log("usuario nao encontrado")
-        }
-      }
-  
-      mensagemLogin = () => {
-        if (this.state.login===''){
-          return "Usuário não logado"
-        }else {
-          return `Bem vind@ ${this.state.login}`
-        }
-      }
-
-        cadastrar = () => {
-            if (this.state.cadastrar){
-                this.setState({
-                    cadastrar: !this.state.cadastrar, 
-                    login:'', 
-                    senha:''
-                })
-            }else {
-                this.setState({
-                    cadastrar: !this.state.cadastrar, 
-                    login:'', 
-                    senha:''
-                })
-            }
-        }
-
-        cadastrarUsuario = () => {
             this.setState({
-                loginCadastrado: this.state.login, 
-                senhaCadastrada: this.state.senha,
                 cadastrar: !this.state.cadastrar,
                 login:'',
                 senha:'',
                 logar:false,
             })
-            this.props.logar(this.state.logar)
+            this.props.logar(this.state.loginCadastrado)
+        } else {
+
         }
+    }
+  
+    cadastrar = () => {
+        if (this.state.cadastrar===false){
+            this.setState({
+                cadastrar: !this.state.cadastrar, 
+                login:'', 
+                senha:''
+            })
+        }
+    }
+
+    cadastrarUsuario = () => {
+        this.setState({
+            loginCadastrado: this.state.login, 
+            senhaCadastrada: this.state.senha,
+            cadastrar: !this.state.cadastrar,
+            login:'',
+            senha:'',
+            logar:false,
+        })
+        this.props.logar(this.state.loginCadastrado)
+    }
 
     render() {
 
@@ -157,6 +157,7 @@ export default class Login extends React.Component {
         } else {
             renderizarLogin = <>
                 <h2>Acesse sua conta</h2>
+                {this.state.loginCadastrado}
             <LoginContainer>
                 <FormLogin>
                     <Campo>
@@ -177,7 +178,7 @@ export default class Login extends React.Component {
                             onChange={this.onChangeSenha}
                         />
                     </Campo>
-                    <BotaoLogar onClick={this.autenticar}>Entrar</BotaoLogar>
+                    <BotaoLogar onClick={()=>this.autenticar()}>Entrar</BotaoLogar>
                 </FormLogin>
                 <h2>OU</h2>
                 <FormLogin>
@@ -186,7 +187,6 @@ export default class Login extends React.Component {
             </LoginContainer>
         </>
         }
-        
         return ( 
         <>
             {renderizarLogin}

@@ -57,6 +57,13 @@ const FiltroContainer = styled.div`
     }
 `
 
+const FraseLogado = styled.div`
+  text-align: right;
+  width: 100%;
+  padding-right:20px;
+  padding-top: 5px;
+`
+
 const listaProdutos = [
   {
     id: 1,
@@ -111,12 +118,14 @@ class App extends React.Component {
     filtroCategoria:'',
     listaProdutosCarrinho: [],
     logar:false,
+    bemvindo:'Realize o login para finalizar suas compras',
   } 
 
-  logar = (logar) => {
-    if (logar === false){
-        this.setState({logar: logar})
-    }
+  logar = (props) => {
+      this.setState({
+          logar: false,
+          bemvindo: 'Bem vind@ Astronauta', 
+      })
   }
 
 
@@ -247,10 +256,11 @@ class App extends React.Component {
     } else {
       renderizaPagina = <Login logar={this.logar}/>
     }
-
+    console.log(this.state)
     return (
       <Body className = "PaginaInicial">
         <Header />
+        <FraseLogado>{this.state.bemvindo}</FraseLogado>
           {renderizaPagina}
         <Footer 
         />
