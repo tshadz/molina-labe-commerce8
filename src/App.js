@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Filtros from './components/Filtros';
 import Carrinho from './components/carrinhoDeCompras/Carrinho'
+import Login from './components/login/Login'
 import { FaTshirt } from 'react-icons/fa';
 import { ImRocket } from 'react-icons/im';
 import { GiStoneSphere } from 'react-icons/gi';
@@ -108,7 +109,8 @@ class App extends React.Component {
     filtroMaximo:'',
     filtroNome: '',
     filtroCategoria:'',
-    listaProdutosCarrinho: []
+    listaProdutosCarrinho: [],
+    logar:true,
   } 
 
   onChangeFiltroMinimo = (event) => {
@@ -185,56 +187,64 @@ class App extends React.Component {
 
   render () {
 
+    let renderizaPagina
+
+    if (this.state.logar === false){
+      renderizaPagina = <Main>
+        <FiltroContainer>
+        <Filtros
+          filtroMinimo={this.state.filtroMinimo}
+          filtroMaximo={this.state.filtroMaximo}
+          filtroNome={this.state.filtroNome}
+          filtroCategoria={this.state.filtroCategoria}
+          onChangeFiltroMinimo={this.onChangeFiltroMinimo}            
+          onChangeFiltroMaximo={this.onChangeFiltroMaximo}            
+          onChangeFiltroNome={this.onChangeFiltroNome}
+          onChangeFiltroCategoria={this.onChangeFiltroCategoria}                  
+          />
+        <FiltroCategoria>
+          <FaTshirt className="icon"
+            value="Camisetas"
+            onClick={this.onClickCamiseta}
+            /> 
+          <p>Camisetas</p>
+          <ImRocket className="icon"
+            value="Foguete"
+            onClick={this.onClickFoguete}      
+            />
+          <p>Foguetes</p>
+          <GiStoneSphere className="icon"
+            value="Meteorito"
+            onClick={this.onClickMeteorito}
+            />
+          <p>Meteoritos</p>
+          <FcClearFilters className="icon" id="LimparFiltros"
+            onClick={this.onClickLimparFiltros}
+            />
+          <p>Limpar Filtros</p>
+        </FiltroCategoria>
+      </FiltroContainer>
+    <Produtos 
+      produtos={listaProdutos}
+      filtroMinimo={this.state.filtroMinimo}
+      filtroMaximo={this.state.filtroMaximo}
+      filtroNome={this.state.filtroNome}
+      filtroCategoria={this.state.filtroCategoria}
+      AddProdutoCarrinho={this.AddProdutoCarrinho}
+      />
+    <Carrinho
+      listaProdutosCarrinho = {this.state.listaProdutosCarrinho}
+      removerProdutoCarrinho = {this.removerProdutoCarrinho}
+      />
+      </Main>
+    } else {
+      renderizaPagina = <Login />
+    }
+
     return (
       <Body className = "PaginaInicial">
         <Header />
-        <Main>
-          <FiltroContainer>
-            <Filtros
-              filtroMinimo={this.state.filtroMinimo}
-              filtroMaximo={this.state.filtroMaximo}
-              filtroNome={this.state.filtroNome}
-              filtroCategoria={this.state.filtroCategoria}
-              onChangeFiltroMinimo={this.onChangeFiltroMinimo}            
-              onChangeFiltroMaximo={this.onChangeFiltroMaximo}            
-              onChangeFiltroNome={this.onChangeFiltroNome}
-              onChangeFiltroCategoria={this.onChangeFiltroCategoria}                  
-            />
-            <FiltroCategoria>
-              <FaTshirt className="icon"
-                value="Camisetas"
-                onClick={this.onClickCamiseta}
-              /> 
-              <p>Camisetas</p>
-              <ImRocket className="icon"
-                value="Foguete"
-                onClick={this.onClickFoguete}      
-              />
-              <p>Foguetes</p>
-              <GiStoneSphere className="icon"
-                value="Meteorito"
-                onClick={this.onClickMeteorito}
-              />
-              <p>Meteoritos</p>
-              <FcClearFilters className="icon" id="LimparFiltros"
-                onClick={this.onClickLimparFiltros}
-              />
-              <p>Limpar Filtros</p>
-            </FiltroCategoria>
-          </FiltroContainer>
-          <Produtos 
-            produtos={listaProdutos}
-            filtroMinimo={this.state.filtroMinimo}
-            filtroMaximo={this.state.filtroMaximo}
-            filtroNome={this.state.filtroNome}
-            filtroCategoria={this.state.filtroCategoria}
-            AddProdutoCarrinho={this.AddProdutoCarrinho}
-            />
-          <Carrinho
-            listaProdutosCarrinho = {this.state.listaProdutosCarrinho}
-            removerProdutoCarrinho = {this.removerProdutoCarrinho}
-          />
-        </Main>
+          {renderizaPagina}
         <Footer 
         />
       </Body>

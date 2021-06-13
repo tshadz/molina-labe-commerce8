@@ -1,5 +1,7 @@
 import React from 'react';
+import { FaLeaf } from 'react-icons/fa';
 import styled from 'styled-components'
+import Login from   './login/Login'
 
 const HeaderContainer = styled.div`
     display: flex;
@@ -41,6 +43,13 @@ a{
 `
 
 export default class Header extends React.Component {
+    state = {
+        login:'',
+        senha: '',
+        status: false,
+    }
+
+    
     render(){
         return <HeaderContainer>
             <h2>Bazar do AstroDev</h2>
