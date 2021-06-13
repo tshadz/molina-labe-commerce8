@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaUserAstronaut } from 'react-icons/fa';
+import { FaSleigh, FaUserAstronaut } from 'react-icons/fa';
 import { FaLock } from 'react-icons/fa';
 
 const BotaoLogar = styled.button`
@@ -65,8 +65,9 @@ export default class Login extends React.Component {
     state={
         login:'',
         senha:'',
-        cadastroLogin:'',
-        cadastroSenha:'',
+        loginCadastrado:'',
+        senhaCadastrada:'',
+        cadastrar:false,
     }
 
     onChangeLogin = (event) => {
@@ -79,17 +80,13 @@ export default class Login extends React.Component {
 
     logou = () => {
         let resp = this.props.logar(this.state.login, this.state.senha)
-        console.log(resp)
     }
 
-    autenticar = (usuarioLogin, usuarioSenha) => {
-        if(usuarioLogin==="adm" && usuarioSenha === "123"){
-          this.setState({login: usuarioLogin, senha: usuarioSenha, status:true})
-          return true
-  
+    autenticar = () => {
+        if(this.state.login === this.state.loginCadastrado && this.state.senha === this.state.senhaCadastrada){
+            console.log("login realizado com sucesso")
         } else {
-          this.setState({login: '', senha: '', status:false})
-          return false
+            console.log("usuario nao encontrado")
         }
       }
   
@@ -101,10 +98,54 @@ export default class Login extends React.Component {
         }
       }
 
+        cadastrar = () => {
+            if (this.state.cadastrar){
+                this.setState({cadastrar: !this.state.cadastrar, login:'', senha:''})
+            }else {
+                this.setState({cadastrar: !this.state.cadastrar, login:'', senha:''})
+            }
+        }
+
+        cadastrarUsuario = () => {
+            this.setState({
+                loginCadastrado: this.state.login, 
+                senhaCadastrada: this.state.senha,
+                cadastrar: !this.state.cadastrar,
+                login:'',
+                senha:'',
+            })
+        }
 
     render() {
-        return (
-            <>
+
+        let renderizarLogin
+
+        if (this.state.cadastrar){
+            renderizarLogin = <LoginContainer>
+            <FormLogin>
+                <Campo>
+                    <Icones> <FaUserAstronaut /> </Icones>
+                    <Input 
+                        type="text" 
+                        placeholder='Login'
+                        value={this.state.login}
+                        onChange={this.onChangeLogin}
+                    />
+                </Campo>
+                <Campo>
+                    <Icones> <FaLock /> </Icones>
+                    <Input
+                        type="password" 
+                        placeholder='Senha'
+                        value={this.state.senha}
+                        onChange={this.onChangeSenha}
+                    />
+                </Campo>
+                <BotaoLogar onClick={this.cadastrarUsuario} >Cadastrar</BotaoLogar>
+                </FormLogin>
+                </LoginContainer>
+        } else {
+            renderizarLogin = <>
                 <h2>Acesse sua conta</h2>
             <LoginContainer>
                 <FormLogin>
@@ -126,13 +167,19 @@ export default class Login extends React.Component {
                             onChange={this.onChangeSenha}
                         />
                     </Campo>
-                    <BotaoLogar onClick={()=>this.logou()}>Entrar</BotaoLogar>
+                    <BotaoLogar onClick={this.autenticar}>Entrar</BotaoLogar>
                 </FormLogin>
                 <h2>OU</h2>
                 <FormLogin>
-                    <BotaoLogar onClick={()=>this.logou()}>Cadastre-se</BotaoLogar>
+                    <BotaoLogar onClick={this.cadastrar}>Cadastre-se</BotaoLogar>
                 </FormLogin>
             </LoginContainer>
+        </>
+        }
+        
+        return ( 
+        <>
+            {renderizarLogin}
         </>
         )
     }
