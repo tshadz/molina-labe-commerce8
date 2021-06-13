@@ -110,8 +110,15 @@ class App extends React.Component {
     filtroNome: '',
     filtroCategoria:'',
     listaProdutosCarrinho: [],
-    logar:true,
+    logar:false,
   } 
+
+  logar = (logar) => {
+    if (logar === false){
+        this.setState({logar: logar})
+    }
+  }
+
 
   onChangeFiltroMinimo = (event) => {
     this.setState({filtroMinimo: event.target.value})
@@ -238,7 +245,7 @@ class App extends React.Component {
       />
       </Main>
     } else {
-      renderizaPagina = <Login />
+      renderizaPagina = <Login logar={this.logar}/>
     }
 
     return (

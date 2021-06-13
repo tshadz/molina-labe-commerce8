@@ -68,6 +68,7 @@ export default class Login extends React.Component {
         loginCadastrado:'',
         senhaCadastrada:'',
         cadastrar:false,
+        logar:true,
     }
 
     onChangeLogin = (event) => {
@@ -76,10 +77,6 @@ export default class Login extends React.Component {
 
     onChangeSenha = (event) => {
         this.setState({senha: event.target.value})
-    }
-
-    logou = () => {
-        let resp = this.props.logar(this.state.login, this.state.senha)
     }
 
     autenticar = () => {
@@ -100,9 +97,17 @@ export default class Login extends React.Component {
 
         cadastrar = () => {
             if (this.state.cadastrar){
-                this.setState({cadastrar: !this.state.cadastrar, login:'', senha:''})
+                this.setState({
+                    cadastrar: !this.state.cadastrar, 
+                    login:'', 
+                    senha:''
+                })
             }else {
-                this.setState({cadastrar: !this.state.cadastrar, login:'', senha:''})
+                this.setState({
+                    cadastrar: !this.state.cadastrar, 
+                    login:'', 
+                    senha:''
+                })
             }
         }
 
@@ -113,7 +118,9 @@ export default class Login extends React.Component {
                 cadastrar: !this.state.cadastrar,
                 login:'',
                 senha:'',
+                logar:false,
             })
+            this.props.logar(this.state.logar)
         }
 
     render() {
@@ -121,7 +128,9 @@ export default class Login extends React.Component {
         let renderizarLogin
 
         if (this.state.cadastrar){
-            renderizarLogin = <LoginContainer>
+            renderizarLogin = <>
+            <h2>Cadastre-se</h2>
+            <LoginContainer>
             <FormLogin>
                 <Campo>
                     <Icones> <FaUserAstronaut /> </Icones>
@@ -141,9 +150,10 @@ export default class Login extends React.Component {
                         onChange={this.onChangeSenha}
                     />
                 </Campo>
-                <BotaoLogar onClick={this.cadastrarUsuario} >Cadastrar</BotaoLogar>
+                <BotaoLogar onClick={()=>this.cadastrarUsuario()} >Cadastrar</BotaoLogar>
                 </FormLogin>
                 </LoginContainer>
+                </>
         } else {
             renderizarLogin = <>
                 <h2>Acesse sua conta</h2>
