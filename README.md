@@ -37,7 +37,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 <h2 id="nao-funciona">:x: O que não funciona</h2>
 
 * Botão de finalizar compra;
-* Botões do mene;
+* Botões do menu;
 * Responsividade de login em mobile;
  
 <h2 id="pendente">:construction: Em desenvolvimento</h2>
