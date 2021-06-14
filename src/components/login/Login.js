@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaSleigh, FaUserAstronaut } from 'react-icons/fa';
+import { FaUserAstronaut } from 'react-icons/fa';
 import { FaLock } from 'react-icons/fa';
 
 const BotaoLogar = styled.button`
