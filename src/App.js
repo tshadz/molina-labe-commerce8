@@ -133,6 +133,20 @@ class App extends React.Component {
     finalizarCompra:false,
   } 
 
+  componentDidMount() {
+  
+    const listaCarrinhoLocal = localStorage.getItem('listaProdutos') 
+    const arrayProdutos = JSON.parse(listaCarrinhoLocal)
+    if(arrayProdutos) {
+      this.setState({listaProdutosCarrinho: arrayProdutos})
+    }
+    
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('listaProdutos', JSON.stringify(this.state.listaProdutosCarrinho))
+  }
+
   logar = () => {
       this.setState({
           logar: !this.state.logar ,
