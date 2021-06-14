@@ -29,31 +29,56 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 <h2 id="funciona">:heavy_check_mark: O que funciona</h2>
 
-* Filtro por preço máximo e mínimo, nome e categoria
-* Adição e exclusão de itens no carrinho
-* Ícones de redes sociais
+* Filtro por preço máximo e mínimo, nome e categoria;
+* Adição e exclusão de itens no carrinho;
+* Ícones de redes sociais;
+* Armazenamento local de produtos do carrinho;
 
 <h2 id="nao-funciona">:x: O que não funciona</h2>
 
-* Botão de finalizar compra
-* Botão de continuar comprando
+* Botão de finalizar compra;
+* Botões do mene;
+* Responsividade de login em mobile;
  
-<h2 id="pendente">:construction: Pendências</h2>
+<h2 id="pendente">:construction: Em desenvolvimento</h2>
 
-- [ ] Menu de navegação
-- [ ] Botão para finalizar compra
-- [ ] Página para card do produto sozinho com detalhamento
-- [ ] Landing page
-- [ ] Cadastro para newsletter
+- [ ] Menu de navegação;
+- [ ] Botão para finalizar compra;
+- [ ] Página para card do produto sozinho com detalhamento;
+- [ ] Landing page;
+- [ ] Cadastro para newsletter;
 
 <h2 id="link">:link: Link Surge - link para visualização do site</h2>
-
+http://selfish-pickle.surge.sh/
 
 <h2 id="imagens">:computer: Imagens Desktop</h2>
 
 - **Página inicial**
+![image](https://user-images.githubusercontent.com/80704054/121828388-d0310900-cc95-11eb-8e9e-a390ad00f256.png)
+
+- **Login**
+![image](https://user-images.githubusercontent.com/80704054/121828425-ec34aa80-cc95-11eb-9eb9-c7d866414e4c.png)
+
+- **Cadastrar**
+![image](https://user-images.githubusercontent.com/80704054/121828460-053d5b80-cc96-11eb-98f6-3855f004c962.png)
+
+- **Filtro categoria**
+![image](https://user-images.githubusercontent.com/80704054/121828482-16866800-cc96-11eb-8126-454bb27ff041.png)
+
+- **Pedido finalizado**
+![image](https://user-images.githubusercontent.com/80704054/121828583-62391180-cc96-11eb-8762-6b32478ee344.png)
+
 
 <h2>:iphone: Imagens Mobile</h2>
+
+- **Página Inicial**<hr></hr>
+
+![image](https://user-images.githubusercontent.com/80704054/121828655-9ad8eb00-cc96-11eb-8dcb-4698966d554d.png)
+
+- **Cadastrar**<hr></hr>
+
+![image](https://user-images.githubusercontent.com/80704054/121828675-af1ce800-cc96-11eb-8d7b-41d020fa0dd5.png)
+
 
 <h2 id="requisitos">:leftwards_arrow_with_hook: Pré-requisitos</h2>
 
@@ -89,9 +114,7 @@ $ npm run start
 :beetle: correção de bug
 
 - Kanban atualizado (Backlog / To do / In progress / Done)
-![image](https://user-images.githubusercontent.com/80704054/121727181-f3a35a80-cac1-11eb-9cde-41fa5748e1ed.png)
-
-
+![image](https://user-images.githubusercontent.com/80704054/121828913-66b1fa00-cc97-11eb-9778-68582a2a26ce.png)
 
 <h2 id="desenvolvedores">:construction_worker: Desenvolvedores</h2>
 
