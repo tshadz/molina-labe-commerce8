@@ -18,9 +18,14 @@ const GridProdutos = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   padding: 16px;
-    @media (max-width: 768px){
+
+    @media (max-width: 960px){
         grid-template-columns: repeat(1, 1fr);
-    }
+    };
+    @media (min-width: 961px) and (max-width: 1050px){
+        grid-template-columns: repeat(2, 1fr);
+    };
+
 `
 
 
