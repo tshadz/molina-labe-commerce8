@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaLeaf } from 'react-icons/fa';
 import styled from 'styled-components'
 
 const HeaderContainer = styled.div`
@@ -24,6 +25,7 @@ ul{
 li{
     padding: 18px 10px;
     text-decoration: none;
+    text-transform: uppercase;
     
 }
 a{
@@ -41,14 +43,15 @@ a{
 `
 
 export default class Header extends React.Component {
+ 
     render(){
-        return <HeaderContainer>
+         return <HeaderContainer>
             <h2>Bazar do AstroDev</h2>
 
             <ul>
-                <li><a href="#">PRODUTOS</a></li>
-                <li><a href="#">SOBRE NÓS</a></li>
-                <li><a href="#">CONTATO</a></li>
+                <li><a href="#">Produtos</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
             </ul>
           </HeaderContainer>
     }

@@ -57,10 +57,8 @@ export default class Carrinho extends React.Component {
                 <p>Valor total: R${this.ValorTotal()},00</p>
                 <FinalizarContinuarCompra>
                         <BotaoCarrinho 
-                          texto="Continuar Compra"
-                        />
-                        <BotaoCarrinho 
                           texto="Finalizar Compra"
+                          onClick={()=>this.props.finalizarCompra()}
                         />
                 </FinalizarContinuarCompra>
             </CarrinhoContainer>

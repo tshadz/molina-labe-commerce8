@@ -42,11 +42,16 @@ const PrecoProduto = styled.div`
   margin-bottom:15px;
 `
 
+const ImagemCard = styled.img`
+  width:100%;
+  height:100%;
+`
+
 export default class CardsProdutos extends React.Component {
     render() {
       const produto = this.props.produto
       return <CardContainer>
-        <img src={produto.imageUrl}/>
+        <ImagemCard src={produto.imageUrl}/>
         <CardInfo>
           <NomeProduto>{produto.nome}</NomeProduto>
           <PrecoProduto>R${produto.preco},00</PrecoProduto>
